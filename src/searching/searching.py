@@ -1,14 +1,24 @@
 def linear_search(arr, target):
-    # Your code here
-
-
-    return -1   # not found
+    for i in range(len(arr)):
+        if arr[i] == target:
+            return i
+    
+    return -1
 
 
 # Write an iterative implementation of Binary Search
 def binary_search(arr, target):
+    first = 0
+    last = (len(arr) - 1)
 
-    # Your code here
-
-
-    return -1  # not found
+    while first <= last:
+        middle = (first + last) // 2
+        if arr[middle] == target:
+            return middle
+        else:
+            if target < arr[middle]:
+                last = middle - 1
+            else:
+                first = middle + 1
+                
+    return -1
